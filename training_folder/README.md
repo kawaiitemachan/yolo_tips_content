@@ -1,47 +1,48 @@
-# YOLOv11n Training Project
+# YOLOv11n トレーニングプロジェクト
 
-This project is set up for training YOLOv11n models with your custom dataset.
+このプロジェクトは、カスタムデータセットを使用してYOLOv11nモデルをトレーニングするための環境です。
 
-## Project Structure
-- `dataset/` - Contains your training data and data.yaml configuration
-- `config.yaml` - Configuration file for training parameters
-- `train_yolov11n.bat` - Windows batch file to start training with one click
-- `setup_environment.bat` - Script to set up the Python environment
-- `predict.bat` - Script to run inference with trained model
+## プロジェクト構成
+- `dataset/` - トレーニングデータとdata.yaml設定ファイルを含むディレクトリ
+- `config.yaml` - トレーニングパラメータの設定ファイル
+- `train_yolov11n.bat` - ワンクリックでトレーニングを開始するためのWindowsバッチファイル
+- `setup_environment.bat` - Python環境をセットアップするためのスクリプト
+- `predict.bat` - トレーニング済みモデルで推論を実行するスクリプト
 
-## How to Use
+## 使用方法
 
-### First-time Setup
-1. Make sure Python is installed on your Windows machine
-2. Double-click `setup_environment.bat` to create a virtual environment and install required packages
+### 初回セットアップ
+1. Windowsマシンに Python がインストールされていることを確認してください
+2. `setup_environment.bat` をダブルクリックして、仮想環境を作成し必要なパッケージをインストールします
 
-### Training
-1. Double-click `train_yolov11n.bat` to start the training process
-2. The script will:
-   - Activate the virtual environment
-   - Use `config.yaml` if it exists, otherwise use default parameters
-   - Start training using your dataset
+### トレーニング
+1. `train_yolov11n.bat` をダブルクリックしてトレーニングプロセスを開始します
+2. スクリプトは以下の処理を行います:
+   - 仮想環境を有効化
+   - `config.yaml` が存在する場合はそれを使用し、存在しない場合はデフォルトパラメータを使用
+   - データセットを使用してトレーニングを開始
 
-### Prediction
-1. After training completes, double-click `predict.bat` to run inference on validation images
-2. Results will be saved in the `runs/predict` directory
+### 推論
+1. トレーニングが完了したら、`predict.bat` をダブルクリックして検証画像に対して推論を実行します
+2. 結果は `runs/predict` ディレクトリに保存されます
 
-## Training Results
-Training results will be saved in the `runs/detect/yolov11n_custom_model` directory, including:
-- Best weights: `best.pt`
-- Last weights: `last.pt`
-- Training metrics and charts
-- Validation results
+## トレーニング結果
+トレーニング結果は `runs/detect/yolov11n_custom_model` ディレクトリに保存され、以下を含みます:
+- ベストウェイト: `best.pt`
+- 最終ウェイト: `last.pt`
+- トレーニングメトリクスとグラフ
+- 検証結果
 
-## Customization
-To customize training parameters, edit the `config.yaml` file.
+## カスタマイズ
+トレーニングパラメータをカスタマイズするには、`config.yaml` ファイルを編集します。
 
-Key parameters:
-- `model: yolov11n.pt` - Base model
-- `epochs: 100` - Number of training epochs
-- `imgsz: 640` - Image size for training
-- `batch: 16` - Batch size
-- `name: yolov11n_custom_model` - Name of the output model
-- Various augmentation parameters
+主要パラメータ:
+- `model: yolov11n.pt` - ベースモデル
+- `epochs: 100` - トレーニングエポック数
+- `imgsz: 640` - トレーニング画像サイズ
+- `batch: 4` - バッチサイズ
+- `workers: 4` - ワーカースレッド数
+- `device: 0` - GPUデバイス（CPUのみを使用する場合は 'cpu'）
+- `name: yolov11n_custom_model` - 出力モデルの名前
 
-The system automatically handles different numbers of classes or class names defined in `data.yaml`.
+このシステムは、`data.yaml` で定義されたクラス数やクラス名の変更に自動的に対応し、YOLOv11のデフォルトのオーグメンテーション設定を使用します。
