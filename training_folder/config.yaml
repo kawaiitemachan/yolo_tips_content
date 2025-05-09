@@ -9,7 +9,7 @@ workers: 4
 device: 0  # Use GPU device 0, use 'cpu' for CPU only
 
 # Dataset
-data: dataset/data.yaml
+data: ./dataset/data.yaml
 
 # Output
 name: yolov11n_seg_custom_model
