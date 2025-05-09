@@ -66,8 +66,21 @@ def main():
             print("Exiting program.")
             return
 
-    # Load YOLO model
-    model = YOLO(model_path)
+    # Load YOLO model with automatic device selection
+    try:
+        # Try to use GPU first
+        import torch
+        if torch.cuda.is_available():
+            print(f"GPU detected: {torch.cuda.get_device_name(0)}")
+            print("Using GPU for inference...")
+            model = YOLO(model_path).to('cuda:0')
+        else:
+            print("No GPU detected. Using CPU for inference...")
+            model = YOLO(model_path).to('cpu')
+    except Exception as e:
+        print(f"Error setting device: {e}")
+        print("Falling back to CPU...")
+        model = YOLO(model_path).to('cpu')
 
     # Get folder path from user
     folder_path = input("Enter folder path containing images to process: ")
