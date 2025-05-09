@@ -1,0 +1,30 @@
+# YOLOv11n Training Configuration
+
+# Model parameters
+model: yolov11n.pt
+epochs: 100
+imgsz: 640
+batch: 4
+workers: 4
+device: 0  # Use GPU device 0, use 'cpu' for CPU only
+
+# Dataset
+data: dataset/data.yaml
+
+# Output
+name: yolov11n_custom_model
+project: runs/detect
+
+# Augmentation
+hsv_h: 0.015  # HSV-Hue augmentation
+hsv_s: 0.7    # HSV-Saturation augmentation
+hsv_v: 0.4    # HSV-Value augmentation
+degrees: 0.0  # Rotation
+translate: 0.1  # Translation
+scale: 0.5    # Scale
+shear: 0.0    # Shear
+perspective: 0.0  # Perspective
+flipud: 0.0   # Vertical flip
+fliplr: 0.5   # Horizontal flip
+mosaic: 1.0   # Mosaic augmentation
+mixup: 0.0    # Mixup augmentation
