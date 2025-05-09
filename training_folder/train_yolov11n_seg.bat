@@ -14,10 +14,10 @@ if not exist "venv" (
 REM Check if config file exists and use it, otherwise use default parameters
 if exist "config.yaml" (
     echo Using configuration from config.yaml
-    python -m ultralytics train cfg=config.yaml
+    yolo train cfg=config.yaml
 ) else (
     echo Config file not found, using default parameters
-    python -m ultralytics train model=yolo11n-seg.pt data=dataset/data.yaml epochs=100 imgsz=640 batch=4 name=yolov11n_custom_model
+    yolo train model=yolo11n-seg.pt data=dataset/data.yaml epochs=100 imgsz=640 batch=4 name=yolov11n_custom_model
 )
 
 echo Training completed
