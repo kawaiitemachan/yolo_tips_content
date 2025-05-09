@@ -1,7 +1,7 @@
-# YOLOv11n Training Configuration
+# YOLOv11n-seg Training Configuration
 
 # Model parameters
-model: yolov11n.pt
+model: yolo11n-seg.pt
 epochs: 100
 imgsz: 640
 batch: 4
@@ -12,5 +12,5 @@ device: 0  # Use GPU device 0, use 'cpu' for CPU only
 data: dataset/data.yaml
 
 # Output
-name: yolov11n_custom_model
-project: runs/detect
+name: yolov11n_seg_custom_model
+project: runs/segment
